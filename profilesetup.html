@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>FutureRem - Profile Setup</title>
+    <link rel="stylesheet" href="setupuser.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="setup-container">
+        <div class="setup-header">
+            <h1 id="setupWelcomeMessage">Welcome, User!</h1>
+            <p>Let's finish setting up your profile to personalize your experience.</p>
+        </div>
+
+        <form id="profileSetupForm">
+            <div class="setup-section active" id="step1">
+                <h2>1. Choose Your Career Path(s)</h2>
+                <p>Select one or more paths that align with your professional goals.</p>
+                <div class="options-grid">
+                    <label class="option-card">
+                        <input type="checkbox" name="careerPath" value="Project Management">
+                        <span><i class="fas fa-tasks"></i> Project Management</span>
+                    </label>
+                    <label class="option-card">
+                        <input type="checkbox" name="careerPath" value="Developer">
+                        <span><i class="fas fa-code"></i> Developer</span>
+                    </label>
+                    <label class="option-card">
+                        <input type="checkbox" name="careerPath" value="Engineer">
+                        <span><i class="fas fa-wrench"></i> Engineer</span>
+                    </label>
+                    <label class="option-card">
+                        <input type="checkbox" name="careerPath" value="Designer">
+                        <span><i class="fas fa-paint-brush"></i> Designer</span>
+                    </label>
+                    <label class="option-card">
+                        <input type="checkbox" name="careerPath" value="Network">
+                        <span><i class="fas fa-network-wired"></i> Network</span>
+                    </label>
+                    <label class="option-card">
+                        <input type="checkbox" name="careerPath" value="Cybersecurity">
+                        <span><i class="fas fa-shield-alt"></i> Cybersecurity</span>
+                    </label>
+                    <label class="option-card">
+                        <input type="checkbox" name="careerPath" value="Data Analyst">
+                        <span><i class="fas fa-chart-bar"></i> Data Analyst</span>
+                    </label>
+                </div>
+                <p class="error-message" id="careerPathErrorMessage"></p>
+            </div>
+
+            <div class="setup-section" id="step2-developer">
+                <h2>2. Developer Specialization(s)</h2>
+                <p>What kind of development are you interested in?</p>
+                <div class="options-grid">
+                    <label class="option-card">
+                        <input type="checkbox" name="devSpecialization" value="App Developer">
+                        <span><i class="fas fa-mobile-alt"></i> App Developer</span>
+                    </label>
+                    <label class="option-card">
+                        <input type="checkbox" name="devSpecialization" value="Game Developer">
+                        <span><i class="fas fa-gamepad"></i> Game Developer</span>
+                    </label>
+                    <label class="option-card">
+                        <input type="checkbox" name="devSpecialization" value="AI Developer">
+                        <span><i class="fas fa-brain"></i> AI Developer</span>
+                    </label>
+                    <label class="option-card">
+                        <input type="checkbox" name="devSpecialization" value="Software Developer">
+                        <span><i class="fas fa-laptop-code"></i> Software Developer</span>
+                    </label>
+                </div>
+                <p class="error-message" id="devSpecializationErrorMessage"></p>
+            </div>
+
+            <div class="setup-section" id="step2-engineer">
+                <h2>2. Engineer Specialization(s)</h2>
+                <p>What kind of engineering are you interested in?</p>
+                <div class="options-grid">
+                    <label class="option-card">
+                        <input type="checkbox" name="engSpecialization" value="Software Engineer">
+                        <span><i class="fas fa-code-branch"></i> Software Engineer</span>
+                    </label>
+                    <label class="option-card">
+                        <input type="checkbox" name="engSpecialization" value="Network Engineer">
+                        <span><i class="fas fa-router"></i> Network Engineer</span>
+                    </label>
+                    <label class="option-card">
+                        <input type="checkbox" name="engSpecialization" value="Database Engineer">
+                        <span><i class="fas fa-database"></i> Database Engineer</span>
+                    </label>
+                    <label class="option-card">
+                        <input type="checkbox" name="engSpecialization" value="Cloud Engineer">
+                        <span><i class="fas fa-cloud"></i> Cloud Engineer</span>
+                    </label>
+                </div>
+                <p class="error-message" id="engSpecializationErrorMessage"></p>
+            </div>
+
+            <div class="setup-section" id="step3">
+                <h2>3. Select Your Skills</h2>
+                <p>Choose the skills you are proficient in. You can select multiple.</p>
+                <div class="form-group">
+                    <label for="skillSearch">Search for skills:</label>
+                    <input type="text" id="skillSearch" placeholder="e.g., JavaScript, Python, Agile">
+                </div>
+                <div id="skillsContainer" class="checkbox-group">
+                    <p class="text-muted">Loading skills...</p>
+                </div>
+                <p class="error-message" id="skillsErrorMessage"></p>
+            </div>
+
+            <div class="setup-section" id="step4">
+                <h2>4. Personal Details</h2>
+                <div class="form-group">
+                    <label for="employmentType">Employment Type</label>
+                    <select id="employmentType" name="employmentType">
+                        <option value="">Select...</option>
+                        <option value="student">Student</option>
+                        <option value="employee">Employee</option>
+                        <option value="unemployed">Unemployed</option>
+                        <option value="retired">Retired</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <p class="error-message" id="employmentTypeError"></p>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" min="13" max="100" placeholder="e.g., 25">
+                    <p class="error-message" id="ageError"></p>
+                </div>
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number</label>
+                    <input type="text" id="contactNumber" name="contactNumber" placeholder="e.g., +91 9876543210">
+                    <p class="error-message" id="contactNumberError"></p>
+                </div>
+
+                <h3>Work Experience (Optional)</h3>
+                <div id="experienceContainer" class="dynamic-fields-container">
+                    </div>
+                <button type="button" id="addExperienceBtn" class="add-item-btn"><i class="fas fa-plus-circle"></i> Add Experience</button>
+
+                <h3>Certifications (Optional)</h3>
+                <div id="certificationsContainer" class="dynamic-fields-container">
+                    </div>
+                <button type="button" id="addCertificationBtn" class="add-item-btn"><i class="fas fa-plus-circle"></i> Add Certification</button>
+
+                <div class="form-group">
+                    <label for="languages">Languages (Comma-separated)</label>
+                    <input type="text" id="languages" name="languages" placeholder="e.g., English, Hindi, Bengali">
+                </div>
+                <div class="form-group">
+                    <label for="hobbies">Hobbies (Comma-separated)</label>
+                    <input type="text" id="hobbies" name="hobbies" placeholder="e.g., Reading, Gaming, Hiking">
+                </div>
+            </div>
+
+            <div class="setup-section" id="step5">
+                <h2>5. Terms and Services</h2>
+                <div class="terms-and-services">
+                    <p>Welcome to FutureRem! By continuing, you agree to our Terms of Service and Privacy Policy. Please read them carefully.</p>
+                    <p>
+                        **Terms of Service:**<br>
+                        1.  **Acceptance of Terms:** By accessing or using our services, you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service.<br>
+                        2.  **User Accounts:** You must be at least 13 years old to use our services. You are responsible for maintaining the confidentiality of your account and password.<br>
+                        3.  **Content:** All content provided on FutureRem is for informational and educational purposes only. We do not guarantee the accuracy, completeness, or usefulness of any content.<br>
+                        4.  **Prohibited Conduct:** You agree not to engage in any activity that is harmful, illegal, or interferes with the operation of the Service.<br>
+                        5.  **Termination:** We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.<br>
+                        6.  **Changes to Terms:** We reserve the right, at our sole discretion, to modify or replace these Terms at any time.<br>
+                    </p>
+                    <p>
+                        **Privacy Policy:**<br>
+                        1.  **Information Collection:** We collect various types of information to provide and improve our Service to you. This includes personal information you provide directly (like name, email) and data collected automatically (usage data, cookies).<br>
+                        2.  **Use of Data:** We use the collected data for various purposes: to provide and maintain the Service, to notify you about changes to our Service, to allow you to participate in interactive features when you choose to do so, to provide customer care and support, to provide analysis or valuable information so that we can improve the Service, to monitor the usage of the Service, to detect, prevent and address technical issues.<br>
+                        3.  **Data Security:** The security of your data is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.<br>
+                        4.  **Third-Party Services:** We may employ third-party companies and individuals to facilitate our Service, provide the Service on our behalf, perform Service-related services or assist us in analyzing how our Service is used. These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.<br>
+                        5.  **Your Rights:** Depending on your location, you may have certain rights regarding your personal data, such as the right to access, update, or delete the information we have on you.<br>
+                    </p>
+                </div>
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="agreeTerms" name="agreeTerms">
+                    <label for="agreeTerms">I agree to the Terms and Services</label>
+                </div>
+                <p class="error-message" id="termsError"></p>
+            </div>
+
+             <div class="setup-navigation">
+                <button type="button" id="backBtn" class="back-btn" style="display: none;">Back</button>
+                <button type="button" id="nextBtn" class="next-btn">Next</button>
+                <button type="submit" id="saveAndStartBtn" class="save-start-btn" style="display: none;" disabled>Save and Start</button>
+            </div>
+        </form>
+    </div>
+
+    <button id="logoutProfileButton" class="logout-button">Logout</button>
+
+    <script src="setupuser.js" defer></script> 
+</body>
+</html>

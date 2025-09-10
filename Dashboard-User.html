@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>FutureRem - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="dark-mode"> <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://raw.githubusercontent.com/Swat1999/GraphicRem/main/FRE%20-%20Logo.png" alt="Brand Logo" class="dashboard-logo">
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-button"><i class="fas fa-home"></i> Home </a></li>
+                    <li><a href="#" class="nav-button"><i class="fas fa-chart-line"></i> Add-Ons </a></li>
+                    <li><a href="#" class="nav-button"><i class="fas fa-box"></i> Explore Market </a></li>
+                    <li><a href="#" class="nav-button"><i class="fas fa-cog"></i> Projects </a></li>
+                    <li><a href="#" class="nav-button"><i class="fas fa-question-circle"></i> Community </a></li>
+                    <li><a href="#" class="nav-button"><i class="fas fa-question-circle"></i> Grading </a></li>
+                    <li><a href="#" class="nav-button"><i class="fas fa-question-circle"></i> Subscriptions </a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logoutButton" class="nav-button logout-button"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1 id="welcomeMessage">Welcome back, User!</h1>
+                </div>
+                <div class="header-right">
+                    <button id="aiAssistantButton" class="header-button"><i class="fas fa-robot"></i> AI Assistant</button>
+                    <button id="themeToggleButton" class="header-button"><i class="fas fa-sun"></i></button> 
+                    <div class="profile-dropdown-container"> 
+                        <button id="profileButton" class="header-button"><i class="fas fa-user-circle"></i> Profile</button>
+                        <div id="profileDropdown" class="profile-dropdown-content">
+                             <div class="profile-dropdown-header">
+                            <img src="https://dummyimage.com/60x60/6366f1/fff&text=P" alt="Profile Picture" class="profile-picture">
+                            </div>
+                             <ul class="profile-dropdown-links">
+                                <li><a href="#"><i class="fas fa-user-cog"></i> Account Settings</a></li>
+                                <li><a href="#"><i class="fas fa-user-circle"></i> Profile</a></li>
+                                <li><a href="#"><i class="fas fa-globe"></i> Language</a></li>
+                                <li><a href="#"><i class="fas fa-question-circle"></i> Help</a></li>
+                            </ul>
+                        </div>
+                </div>
+            </header>
+
+            <section class="dashboard-overview">
+                <div class="card">
+                    <h3>Dashboard Overview</h3>
+                    <p>This is where your primary dashboard widgets and information will be displayed.</p>
+                    <p>Customize this area with charts, key metrics, and quick access features.</p>
+                </div>
+                <div class="card">
+                    <h3>Recent Activity</h3>
+                    <ul>
+                        <li>Logged in to account.</li>
+                        <li>Updated profile information.</li>
+                        <li>Accessed analytics report.</li>
+                    </ul>
+                </div>
+                <div class="card" id="savedRecommendationsCard">
+                  <h3><i class="fas fa-bookmark"></i> Saved Recommendations</h3>
+                  <div id="savedRecommendationsContainer" class="saved-recommendations-container">
+                    <p class="empty-state">No saved recommendations yet.</p>
+                  </div>
+                </div>
+
+
+                <!--- Subscription flow for all subs (when its not bought)-->
+
+                <section class="subscription-section card" style="display: none;">
+    <div class="card-header">
+        <h3><i class="fas fa-crown"></i> Your Subscriptions</h3>
+    </div>
+    <div id="subscriptionsContainer" class="subscriptions-container">
+        <div class="empty-state">
+            <p>No active subscriptions</p>
+            <button id="getSubscriptions" class="btn-small">
+                <i class="fas fa-plus"></i> Add Subscription
+            </button>
+        </div>
+    </div>
+</section>
+
+<!--- Subscription flow for all subs (when its bought)-->
+
+<div id="subscriptionModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2><i class="fas fa-crown"></i> Choose Your Subscription</h2>
+            <span class="close-btn">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="subscription-plans">
+                <!-- FREE VERSION -->
+                <div class="subscription-card">
+                    <h3>FREE VERSION</h3>
+                    <div class="price">$0/mo</div>
+                    <ul class="features">
+                        <li>Access to free content</li>
+                        <li>Community connection</li>
+                        <li>AI usage at ease</li>
+                        <li>Trend alerts</li>
+                    </ul>
+                    <button class="btn-select" data-plan="free">SELECT</button>
+                </div>
+                
+                <!-- BEGINNER VERSION -->
+                <div class="subscription-card">
+                    <h3>BEGINNER VERSION</h3>
+                    <div class="price">$15/mo</div>
+                    <ul class="features">
+                        <li>Wide content access</li>
+                        <li>Custom AI usage</li>
+                        <li>Network and grow</li>
+                        <li>Custom alerts</li>
+                    </ul>
+                    <button class="btn-select" data-plan="beginner">SELECT</button>
+                </div>
+                
+                <!-- DEVELOPER VERSION -->
+                <div class="subscription-card">
+                    <h3>DEVELOPER VERSION</h3>
+                    <div class="price">$32/mo</div>
+                    <ul class="features">
+                        <li>70% content access</li>
+                        <li>Advanced AI tools</li>
+                        <li>Live chat + connections</li>
+                        <li>Alert customizations</li>
+                    </ul>
+                    <button class="btn-select" data-plan="developer">SELECT</button>
+                </div>
+            </div>
+        </div>
+         <div class="modal-actions">
+            <button id="cancelSubscription" class="btn-secondary">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+  <h3>Quick Links</h3>
+  <div class="quick-links">
+    <button id = "new-report" class="quick-link-button"><i class="fas fa-plus-circle"></i> New Report</button>
+    <button id="uploadDataBtn" class="quick-link-button"><i class="fas fa-cloud-upload-alt"></i>Upload Data</button>
+    <button id = "notification" class="quick-link-button"><i class="fas fa-bell"></i> Notifications</button>
+  </div>
+</div>
+</section>
+</main>
+
+        <div class="chatbot-placeholder">
+            <i class="fas fa-comments"></i>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+  <div id="aiAssistantModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2><i class="fas fa-robot"></i> AI-Powered Course Recommendations</h2>
+      <span class="close-btn">&times;</span>
+    </div>
+    <div class="modal-body">
+      <div id="recommendationsContainer">
+        <div class="loading-state"> <!-- Added loading structure -->
+          <div class="loading-spinner"></div>
+          <p>Analyzing your profile and market trends...</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button id="cancelRecommendations" class="btn-secondary">Cancel</button>
+      <button id="saveRecommendations" class="btn-primary">Save & Finish</button>
+    </div>
+  </div>
+</div>
+
+<div id="manageSubscriptionModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2><i class="fas fa-crown"></i> Manage Subscription</h2>
+      <span class="close-btn">&times;</span>
+    </div>
+    <div class="modal-body">
+      <div id="currentSubscriptionDetails">
+        <!-- Will be populated dynamically -->
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button id="cancelPlanBtn" class="btn-danger">Cancel Plan</button>
+      <button id="changePlanBtn" class="btn-secondary">Change Plan</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Payment window-->
+
+<div id="paymentModal" class="modal">
+  <div class="modal-content payment-modal">
+    <div class="modal-header">
+      <h2>Complete Your Subscription</h2>
+      <span class="close-btn">&times;</span>
+    </div>
+    <div class="modal-body">
+      <div class="payment-methods">
+        <h3>Choose your preferred mode of payment</h3>
+        <div class="payment-options">
+          <div class="payment-option" data-method="visa">
+            <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="VISA">
+            <span>VISA</span>
+          </div>
+          <div class="payment-option" data-method="mastercard">
+            <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="MasterCard">
+            <span>MasterCard</span>
+          </div>
+          <div class="payment-option" data-method="paypal">
+            <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="PayPal">
+            <span>PayPal</span>
+          </div>
+          <div class="payment-option" data-method="netbanking">
+            <img src="https://cdn-icons-png.flaticon.com/512/196/196554.png" alt="NetBanking">
+            <span>NetBanking</span>
+          </div>
+        </div>
+
+        <!-- Payment Forms (hidden by default) -->
+        <div id="cardPaymentForm" class="payment-form" style="display: none;">
+          <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="expiry">Expiry</label>
+              <input type="text" id="expiry" name="expiry" placeholder="MM/YY" pattern="\d{2}/\d{2}">
+            </div>
+            <div class="form-group">
+              <label for="cvv">CVV/CVC</label>
+              <input type="text" id="cvv" placeholder="123">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cardName">Name on card</label>
+            <input type="text" id="cardName" placeholder="John Doe">
+          </div>
+        </div>
+
+        <div id="paypalForm" class="payment-form" style="display: none;">
+          <div class="form-group">
+            <label for="paypalEmail">PayPal Email</label>
+            <input type="email" id="paypalEmail" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label for="paypalPassword">Password</label>
+            <input type="password" id="paypalPassword" placeholder="••••••••">
+          </div>
+        </div>
+
+        <div id="netbankingForm" class="payment-form" style="display: none;">
+          <div class="form-group">
+            <label for="customerId">Customer ID/Number</label>
+            <input type="text" id="customerId" placeholder="123456789">
+          </div>
+          <div class="form-group">
+            <label for="netbankingPassword">Password</label>
+            <input type="password" id="netbankingPassword" placeholder="••••••••">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button id="cancelPayment" class="btn-secondary">Cancel</button>
+      <button id="confirmPayment" class="btn-primary">Purchase</button>
+    </div>
+  </div>
+</div>
+
+<!--- Upload modal-->
+
+<div id="uploadDataModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Upload Resume & CV</h2>
+      <span class="close-btn">&times;</span>
+      </div>
+      <div class="modal-body">
+        <label for="resumeUpload">Upload Resume:</label>
+        <input type="file" id="resumeUpload" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+
+        <label for="cvUpload">Upload CV:</label>
+        <input type="file" id="cvUpload" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+      </div>
+    <div class="modal-actions">
+      <button id="uploadFilesBtn" type="button" class="btn-primary">Save</button>
+      <button id="cancelBtn" type="button" class="btn-secondary close-btn">Cancel</button>
+    </div>
+    </div>
+</div>
+
+
+<!-- upload result on a dialogue box-->
+ <div id="analysisResultModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Resume & CV Analysis Results</h2>
+      <span class="close-btn">&times;</span>
+    </div>
+    <div class="modal-body" id="analysisResultsContainer">
+      <!-- Populated dynamically -->
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary close-btn">Close</button>
+    </div>
+  </div>
+</div>
+   </body>
+</html>
